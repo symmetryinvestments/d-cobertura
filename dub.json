@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"Elijah Stone"
+	],
+	"copyright": "Copyright © 2020, Elijah Stone",
+	"description": "A program to automatically convert d-style coverage reports to XML cobertura-style ones.",
+	"license": "BSL",
+	"name": "d-cobertura"
+}
