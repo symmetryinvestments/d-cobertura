@@ -36,13 +36,13 @@ struct CoveredFile {
 	string xml_dump(string prefix) {
 		import core.stdc.time: time;
 		import std.format: fmt = format;
-		import std.path: dir_name = dirName, base_name = baseName, build_path = buildPath, build_path = buildPath, absolute = absolutePath, is_absolute = isAbsolute;
+		import std.path: base_name = baseName, build_path = buildPath, build_path = buildPath, absolute = absolutePath, is_absolute = isAbsolute;
 		import std.algorithm.iteration: splitter;
 		double line_rate = indices.length/cast(double)lines.length;
 		string res = `<?xml version="1.0"?>
 <coverage version="5.3" timestamp="%s" lines-valid="%s" lines-covered="%s" line-rate="%s" branches-covered="0" branches-valid="0" branch-rate="0" complexity="0">`.fmt(time(null), lines.length, indices.length, line_rate);
 		string fpath = build_path(path[0 .. $-4].splitter('-')) ~ ".d";
-		res ~= `<sources><source>%s</source></sources>`.fmt(path.dir_name.absolute);
+		res ~= `<sources><source>./</source></sources>`;
 		res ~= `<packages><package name="covered" line-rate="%1$s" branch-rate="0" complexity="0"><classes><class name="%2$s" filename="%2$s" complexity="0" line-rate="%1$s" branch-rate="0"><methods/>`.fmt(line_rate, build_path(prefix, fpath));
 
 		res ~= `<lines>`;
