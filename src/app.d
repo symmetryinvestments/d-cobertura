@@ -98,7 +98,8 @@ struct CoveredFile {
 }
 
 int main(string[] args) {
-	import std.path: relative_path = relativePath, getcwd;
+	import std.path: relative_path = relativePath;
+	import std.file : getcwd;
 	import std.file: fspurt = write;
 
 	if(args.length < 3) {
