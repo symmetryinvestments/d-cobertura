@@ -98,7 +98,7 @@ struct CoveredFile {
 }
 
 int main(string[] args) {
-	import std.path: relative_path = relativePath;
+	import std.path: relative_path = relativePath, getcwd;
 	import std.file: fspurt = write;
 
 	if(args.length < 3) {
@@ -113,6 +113,7 @@ int main(string[] args) {
 		o.files ~= c;
 	}
 
+	writeln(getcwd());
 	fspurt("cobertura.xml", o.writeFile(args[1]));
 
 	return 0;
