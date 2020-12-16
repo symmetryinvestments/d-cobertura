@@ -103,7 +103,7 @@ int main(string[] args) {
 	import std.file: fspurt = write;
 
 	if(args.length < 3) {
-		writefln("Usage: <prefix> <coverages.lst>");
+		writefln("Usage: %s <prefix> <coverages.lst>", args[0]);
 		return 1;
 	}
 
