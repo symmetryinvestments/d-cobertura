@@ -57,7 +57,8 @@ struct Output {
 
 			res ~= "\t\t\t\t\t<lines>\n";
 			foreach(i; file.indices) {
-				res ~= "\t\t\t\t\t\t<line number=\"%s\" hits=\"%s\"/>\n".fmt(i, file.lines[i].times_covered);
+				// +1 because i is 0-indexed, but line numbers are 1-indexed
+				res ~= "\t\t\t\t\t\t<line number=\"%s\" hits=\"%s\"/>\n".fmt(i+1, file.lines[i].times_covered);
 			}
 			res ~= "\t\t\t\t\t</lines>\n\t\t\t\t</class>\n\t\t\t</classes>\n\t\t</package>\n\t";
 		}
