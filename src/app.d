@@ -79,6 +79,10 @@ struct CoveredFile {
 		assert(path.ends_with(".lst"));
 		this.path = path;
 
+		if(!exists(this.path)) {
+			return;
+		}
+
 		size_t i = 0;
 		this.lines = File(path)
 			.byLineCopy
