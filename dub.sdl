@@ -1,0 +1,17 @@
+name "d-cobertura"
+description "A program to automatically convert d-style coverage reports to XML cobertura-style ones."
+authors "Elijah Stone"
+copyright "Copyright © 2020, Elijah Stone"
+license "BSL"
+dependency "unit-threaded" version="~>2.0.3"
+targetType "executable"
+
+configuration "default" {
+}
+
+configuration "unittest" {
+    dependency "unit-threaded" version="*"
+    mainSourceFile "bin/ut.d"
+    excludedSourceFiles "src/app.d"
+    preBuildCommands "$DUB run --compiler=$$DC unit-threaded -c gen_ut_main -- -f bin/ut.d -d $DUB"
+}
